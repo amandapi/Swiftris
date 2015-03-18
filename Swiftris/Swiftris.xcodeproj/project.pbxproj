@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A38FFD31AB9FC8600CFC09D /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38FFD21AB9FC8600CFC09D /* Array2D.swift */; };
 		0A87059C1AB8E61200BF12FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87059B1AB8E61200BF12FA /* AppDelegate.swift */; };
 		0A8705A01AB8E61200BF12FA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87059F1AB8E61200BF12FA /* GameScene.swift */; };
 		0A8705A21AB8E61200BF12FA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8705A11AB8E61200BF12FA /* GameViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A38FFD21AB9FC8600CFC09D /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		0A8705961AB8E61200BF12FA /* Swiftris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A87059A1AB8E61200BF12FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A87059B1AB8E61200BF12FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0A8705CA1AB8E9EF00BF12FA /* Sprites.atlas */,
 				0A8705BF1AB8E9BD00BF12FA /* Sounds */,
 				0A8705991AB8E61200BF12FA /* Supporting Files */,
+				0A38FFD21AB9FC8600CFC09D /* Array2D.swift */,
 			);
 			path = Swiftris;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8705A01AB8E61200BF12FA /* GameScene.swift in Sources */,
+				0A38FFD31AB9FC8600CFC09D /* Array2D.swift in Sources */,
 				0A8705A21AB8E61200BF12FA /* GameViewController.swift in Sources */,
 				0A87059C1AB8E61200BF12FA /* AppDelegate.swift in Sources */,
 			);
@@ -465,6 +469,7 @@
 				0A8705BB1AB8E61200BF12FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A8705BC1AB8E61200BF12FA /* Build configuration list for PBXNativeTarget "SwiftrisTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +478,7 @@
 				0A8705BE1AB8E61200BF12FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
