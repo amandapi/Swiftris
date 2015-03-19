@@ -8,7 +8,15 @@
 
 import SpriteKit
 
+// #1 define new constant
+let TicklengthLevelOne = NSTimeInterval(600)
+
 class GameScene: SKScene {
+    
+// #2 define some variables
+        var tick:(() -> ())? // a closure which takes no parameters n returne nothing and may be nil
+        var tickLengthMillis = TicklengthLevelOne  // current tick length
+        var lastTick:NSDate? // last time we experienced a tick
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported")
@@ -27,6 +35,25 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+// #3
+        if lastTick == nil {  // in a paused state
+            return
+        }
+        var timePassed = lastTick!.timeIntervalSinceNow * -1000.0 // need + ms value
+        if timePassed > tickLengthMillis {  // recover time passed
+            lastTick = NSDate()  // report a tick
+            tick?()  // if tick !=nil {tick!()}
+        }
+    }
+    
+// #4  allow external classes to start or stop ticking
+    func startTicking() {
+        lastTick = NSDate()
+    }
+    
+    func stopTicking() {
+        lastTick = nil
     }
 }
 
