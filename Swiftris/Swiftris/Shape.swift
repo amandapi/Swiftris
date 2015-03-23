@@ -61,16 +61,16 @@ class Shape: Hashable, Printable {
 
     var column, row:Int   // The column and row representing the shape's anchor point
     
-    // Required Overrides
-    // #1  Subclasses must override this property - dictionary with key:value
+// Required Overrides
+// #2  Subclasses must override this property - dictionary with key:value
     var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [:]  // returns empty values so subclasses can provide data
     }
-    // #2  Subclasses must override this property
+// #3  Subclasses must override this property
     var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [:]
     }
-    // #3 complete computed property
+// #4 complete computed property
     var bottomBlocks:Array<Block> {
         if let bottomBlocks = bottomBlocksForOrientations[orientation] {
             return bottomBlocks
@@ -79,7 +79,7 @@ class Shape: Hashable, Printable {
     }
 
     var hashValue:Int {  // Hashable
-        // #4  this method iterates through entire block array
+// #5  this method iterates through entire block array
         return reduce(blocks, 0) { $0.hashValue ^ $1.hashValue }
     }
     
@@ -95,14 +95,14 @@ class Shape: Hashable, Printable {
         initializeBlocks()
     }
     
-    // #5 a special initializer
+// #6 a special initializer
     convenience init(column:Int, row:Int) {
         self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
     }
     
-    // #6 final func cannot be overridden by subclasses
+// #7 final func cannot be overridden by subclasses
     final func initializeBlocks() {
-    // #7 conditional: if no array, if block is not executed
+// #8 conditional: if no array, if block is not executed
     if let blockRowColumnTranslations = blockRowColumnPositions[orientation] {
         for i in 0..<blockRowColumnTranslations.count {
             let blockRow = row + blockRowColumnTranslations[i].rowDiff
@@ -115,19 +115,44 @@ class Shape: Hashable, Printable {
 
     final func rotateBlocks(orientation: Orientation) {
         if let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] {
-// #1 to iterate thru array with index var idx and contents (columnDiff, rowDiff)
+// #9 to iterate thru array with index var idx and contents (columnDiff, rowDiff)
             for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
                 blocks[idx].column = column + columnDiff
                 blocks[idx].row = row + rowDiff
             }
         }
     }
+    
+// #10 methods to rotate and move shapes
+    final func rotateClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: true)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
+    
+    final func rotateCounterClockwise() {
+        let newOrientation = Orientation.rotate(orientation, clockwise: false)
+        rotateBlocks(newOrientation)
+        orientation = newOrientation
+    }
 
     final func lowerShapeByOneRow() {
         shiftBy(0, rows:1)
     }
     
-// #2 adjust each row and column
+    final func raiseShapeByOneRow() {
+        shiftBy(0, rows:-1)
+    }
+    
+    final func shiftRightByOneColumn() {
+        shiftBy(1, rows:0)
+    }
+    
+    final func shiftLeftByOneColumn() {
+        shiftBy(-1, rows:0)
+    }
+    
+// #11 adjust each row and column
     final func shiftBy(columns: Int, rows: Int) {
         self.column += columns
         self.row += rows
@@ -137,7 +162,7 @@ class Shape: Hashable, Printable {
         }
     }
     
-// #3 provide absolute approach to position modification
+// #12 provide absolute approach to position modification
     final func moveTo(column: Int, row:Int) {
         self.column = column
         self.row = row
@@ -147,7 +172,7 @@ class Shape: Hashable, Printable {
     final class func random(startingColumn:Int, startingRow:Int) -> Shape {
         switch Int(arc4random_uniform(NumShapeTypes)) {
             
-// #4 generate random Tetromino shape
+// #13 generate random Tetromino shape
         case 0:
             return SquareShape(column:startingColumn, row:startingRow)
         case 1:

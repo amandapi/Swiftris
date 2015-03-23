@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SwiftrisDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
@@ -28,13 +28,14 @@ class GameViewController: UIViewController {
 // #1 set a closure for the tick property
     scene.tick = didTick
     swiftris = Swiftris()
+    swiftris.delegate = self
     swiftris.beginGame()
     
     // Present the scene
     skView.presentScene(scene)
 
 // #2
-        scene.addPreviewShapeToScene(swiftris.nextShape!) {
+/*        scene.addPreviewShapeToScene(swiftris.nextShape!) {
             self.swiftris.nextShape?.moveTo(StartingColumn, row: StartingRow)
             self.scene.movePreviewShape(self.swiftris.nextShape!) {
                 let nextShapes = self.swiftris.newShape()
@@ -42,6 +43,7 @@ class GameViewController: UIViewController {
                 self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
             }
         }
+*/
 }
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -50,7 +52,56 @@ class GameViewController: UIViewController {
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
     
     func didTick() {
-        swiftris.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(swiftris.fallingShape!, completion: {})
+// #4 substitute previous codes
+        swiftris.letShapeFall()
+        //swiftris.fallingShape?.lowerShapeByOneRow()
+        //scene.redrawShape(swiftris.fallingShape!, completion: {})
     }
+    
+    func nextShape() {
+        let newShapes = swiftris.newShape()
+        if let fallingShape = newShapes.fallingShape {
+            self.scene.addPreviewShapeToScene(newShapes.nextShape!) {}
+            self.scene.movePreviewShape(fallingShape) {
+// #5 so we can shut down interaction with the view
+                self.view.userInteractionEnabled = true
+                self.scene.startTicking()
+            }
+        }
+    }
+    
+    func gameDidBegin(swiftris: Swiftris) {
+        // The following is false when restarting a new game
+        if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
+            scene.addPreviewShapeToScene(swiftris.nextShape!) {
+                self.nextShape()
+            }
+        } else {
+            nextShape()
+        }
+    }
+    
+    func gameDidEnd(swiftris: Swiftris) {
+        view.userInteractionEnabled = false
+        scene.stopTicking()
+    }
+    
+    func gameDidLevelUp(swiftris: Swiftris) {
+        
+    }
+    
+    func gameShapeDidDrop(swiftris: Swiftris) {
+        
+    }
+    
+    func gameShapeDidLand(swiftris: Swiftris) {
+        scene.stopTicking()
+        nextShape()
+    }
+    
+// #6 after a shape has moved, redraw representation sprite at new location
+    func gameShapeDidMove(swiftris: Swiftris) {
+        scene.redrawShape(swiftris.fallingShape!) {}
+    }
+    
 }
