@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2A2F111ABF55B9004F631A /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A2F101ABF55B9004F631A /* Swiftris.swift */; };
 		0A38FFD31AB9FC8600CFC09D /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38FFD21AB9FC8600CFC09D /* Array2D.swift */; };
 		0A6AFAF61ABE14C1000D17B2 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6AFAF51ABE14C1000D17B2 /* Shape.swift */; };
 		0A6AFAF81ABE1BB5000D17B2 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6AFAF71ABE1BB5000D17B2 /* SquareShape.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2A2F101ABF55B9004F631A /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 		0A38FFD21AB9FC8600CFC09D /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		0A6AFAF51ABE14C1000D17B2 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		0A6AFAF71ABE1BB5000D17B2 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				0A6AFAFB1ABE1BF8000D17B2 /* LineShape.swift */,
 				0A6AFAF91ABE1BE4000D17B2 /* TShape.swift */,
 				0A6AFAF71ABE1BB5000D17B2 /* SquareShape.swift */,
+				0A2A2F101ABF55B9004F631A /* Swiftris.swift */,
 			);
 			path = Swiftris;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				0A8705A01AB8E61200BF12FA /* GameScene.swift in Sources */,
 				0A6AFAF61ABE14C1000D17B2 /* Shape.swift in Sources */,
 				0AFD4FC61ABC94A100AE5EDD /* block.swift in Sources */,
+				0A2A2F111ABF55B9004F631A /* Swiftris.swift in Sources */,
 				0A6AFAFC1ABE1BF8000D17B2 /* LineShape.swift in Sources */,
 				0A6AFAFE1ABE1C06000D17B2 /* SShape.swift in Sources */,
 				0A6AFAFA1ABE1BE4000D17B2 /* TShape.swift in Sources */,
