@@ -9,10 +9,11 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, SwiftrisDelegate {
+class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
+    var panPointReference:CGPoint? // keep track of last point when pan begins
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,50 @@ class GameViewController: UIViewController, SwiftrisDelegate {
     
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
     
+    @IBAction func didTap(sender: UITapGestureRecognizer) {
+        swiftris.rotateShape()
+    }
+    
+    @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        let currentPoint = sender.translationInView(self.view) // measure of translation distance
+        if let originalPoint = panPointReference {
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                if sender.velocityInView(self.view).x > CGFloat(0) { 
+                    swiftris.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    swiftris.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .Began {
+            panPointReference = currentPoint
+        }
+    }
+    
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        swiftris.dropShape()
+    }
+    
+    // let all gesture recognizer work together but sometimes they might collide
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        return true
+    }
+    
+    // optional cast priorities: tap, pan, swipe
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+        if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
+            if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
+                return true
+            }
+        } else if let panRec = gestureRecognizer as? UIPanGestureRecognizer {
+            if let tapRec = otherGestureRecognizer as? UITapGestureRecognizer {
+                return true
+            }
+        }
+        return false
+    }
+    
     func didTick() {
 // #4 substitute previous codes
         swiftris.letShapeFall()
@@ -81,6 +126,24 @@ class GameViewController: UIViewController, SwiftrisDelegate {
         }
     }
     
+    // #6 after a shape has moved, redraw representation sprite at new location
+    func gameShapeDidMove(swiftris: Swiftris) {
+        scene.redrawShape(swiftris.fallingShape!) {}
+    }
+    
+    // stop the ticks, redraw shape at new location, let it drop
+    func gameShapeDidDrop(swiftris: Swiftris) {
+        scene.stopTicking()
+        scene.redrawShape(swiftris.fallingShape!) {
+            swiftris.letShapeFall()
+        }
+    }
+    
+    func gameShapeDidLand(swiftris: Swiftris) {
+        scene.stopTicking()
+        nextShape()
+    }
+    
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
@@ -89,19 +152,5 @@ class GameViewController: UIViewController, SwiftrisDelegate {
     func gameDidLevelUp(swiftris: Swiftris) {
         
     }
-    
-    func gameShapeDidDrop(swiftris: Swiftris) {
-        
-    }
-    
-    func gameShapeDidLand(swiftris: Swiftris) {
-        scene.stopTicking()
-        nextShape()
-    }
-    
-// #6 after a shape has moved, redraw representation sprite at new location
-    func gameShapeDidMove(swiftris: Swiftris) {
-        scene.redrawShape(swiftris.fallingShape!) {}
-    }
-    
+
 }

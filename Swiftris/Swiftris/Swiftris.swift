@@ -16,8 +16,8 @@ let StartingRow = 0
 let PreviewColumn = 12
 let PreviewRow = 1
 
-let PointsPerLine = 10
-let LevelThreshold = 1000
+let PointsPerLine = 10    // scoring
+let LevelThreshold = 1000 // levels
 
 protocol SwiftrisDelegate {
     // invoked when the current round of Swiftris ends
@@ -69,7 +69,7 @@ class Swiftris {
         nextShape = Shape.random(PreviewColumn, startingRow: PreviewRow)
         fallingShape?.moveTo(StartingColumn, row: StartingRow)
         
-// #3 detect end game
+// #3 detect end game - new shape at starting location collides with existing shape
         if detectIllegalPlacement() {
             nextShape = fallingShape
             nextShape!.moveTo(PreviewColumn, row: PreviewRow)
@@ -81,7 +81,7 @@ class Swiftris {
     }
     
     
-// #4 check block boundary conditions: block exceed gameboard size? block overlap another block?
+// #4 illegal when (1) block exceed gameboard size or (2) block overlap another block
     func detectIllegalPlacement() -> Bool {
         if let shape = fallingShape {
             for block in shape.blocks {
@@ -127,12 +127,12 @@ class Swiftris {
         delegate?.gameDidEnd(self)
     }
     
-// #7 func returns a tuple - 2 arrays; linesRomoved and fallenBlocks
+// #7 func returns a tuple - 2 arrays: linesRomoved and fallenBlocks
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
         var removedLines = Array<Array<Block>>()
         for var row = NumRows - 1; row > 0; row-- {
             var rowOfBlocks = Array<Block>()
-// #8 iterate from 0 to 9, adds every block in a given row to a local array rowOfBlocks. If it end up with 10 blocks in total, line removed
+// #8 iterate from 0 to 9, adds every block in a given row to a local array rowOfBlocks. If there are 10 blocks in total, line removed
             for column in 0..<NumColumns {
                 if let block = blockArray[column, row] {
                     rowOfBlocks.append(block)
@@ -150,7 +150,7 @@ class Swiftris {
         if removedLines.count == 0 {
             return ([], [])
         }
-// #10 add points to score based on number of lines created and level
+// #10 add 1 point to score for 1 line removed for level 1
         let pointsEarned = removedLines.count * PointsPerLine * level
         score += pointsEarned
         if score >= level * LevelThreshold {
@@ -212,7 +212,7 @@ class Swiftris {
         }
     }
     
-// #14 implement roated shapes
+// #14 implement rotated shapes
     func rotateShape() {
         if let shape = fallingShape {
             shape.rotateClockwise()
@@ -247,6 +247,7 @@ class Swiftris {
         }
     }
     
+// #16 loop thru and create rows of blocks so animate off the gameboard
     func removeAllBlocks() -> Array<Array<Block>> {
         var allBlocks = Array<Array<Block>>()
         for row in 0..<NumRows {

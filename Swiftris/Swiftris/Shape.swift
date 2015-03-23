@@ -137,7 +137,7 @@ class Shape: Hashable, Printable {
     }
 
     final func lowerShapeByOneRow() {
-        shiftBy(0, rows:1)
+        shiftBy(0, rows:1)  // (0,0) is at top left corner
     }
     
     final func raiseShapeByOneRow() {
