@@ -14,6 +14,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var scene: GameScene!
     var swiftris:Swiftris!
     var panPointReference:CGPoint? // keep track of last point when pan begins
+   
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var levelLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +36,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     swiftris.delegate = self
     swiftris.beginGame()
     
-    // Present the scene
+// Present the scene
     skView.presentScene(scene)
 
 // #2
@@ -116,6 +120,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     func gameDidBegin(swiftris: Swiftris) {
+        levelLabel.text = "\(swiftris.level)"
+        scoreLabel.text = "\(swiftris.score)"
+        scene.tickLengthMillis = TicklengthLevelOne
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(swiftris.nextShape!) {
@@ -126,31 +133,54 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
     }
     
-    // #6 after a shape has moved, redraw representation sprite at new location
-    func gameShapeDidMove(swiftris: Swiftris) {
-        scene.redrawShape(swiftris.fallingShape!) {}
+    func gameDidEnd(swiftris: Swiftris) {
+        view.userInteractionEnabled = false
+        scene.stopTicking()
+        scene.playSound("gameover.mp3")
+        scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
+            swiftris.beginGame()
+        }
     }
     
-    // stop the ticks, redraw shape at new location, let it drop
+    func gameDidLevelUp(swiftris: Swiftris) {
+        levelLabel.text = "\(swiftris.level)"
+        if scene.tickLengthMillis >= 100 {
+            scene.tickLengthMillis -= 100
+        } else if scene.tickLengthMillis > 50 {
+            scene.tickLengthMillis -= 50
+        }
+        scene.playSound("levelup.mp3")
+    }
+    
+// stop the ticks, redraw shape at new location, let it drop
     func gameShapeDidDrop(swiftris: Swiftris) {
         scene.stopTicking()
         scene.redrawShape(swiftris.fallingShape!) {
             swiftris.letShapeFall()
         }
+        scene.playSound("drop.mp3")
     }
     
     func gameShapeDidLand(swiftris: Swiftris) {
         scene.stopTicking()
-        nextShape()
+        self.view.userInteractionEnabled = false
+// recover 2 arrays. update score label, animate explosion
+        let removedLines = swiftris.removeCompletedLines()
+        if removedLines.linesRemoved.count > 0 {
+            self.scoreLabel.text = "\(swiftris.score)"
+            scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
+// recursive call to invoke itself
+                self.gameShapeDidLand(swiftris)
+            }
+            scene.playSound("bomb.mp3")
+        } else {
+            nextShape()
+        }
     }
     
-    func gameDidEnd(swiftris: Swiftris) {
-        view.userInteractionEnabled = false
-        scene.stopTicking()
+// #6 after a shape has moved, redraw representation sprite at new location
+    func gameShapeDidMove(swiftris: Swiftris) {
+        scene.redrawShape(swiftris.fallingShape!) {}
     }
     
-    func gameDidLevelUp(swiftris: Swiftris) {
-        
-    }
-
 }
