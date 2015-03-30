@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+//import SceneKit
 
 class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
@@ -18,7 +19,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var levelLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -52,6 +53,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
 }
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    
+    @IBAction func playPause(sender: UIButton) {
+        scene.stopTicking()
+        scene.stopTheme()
     }
     
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
@@ -123,6 +130,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
         scene.tickLengthMillis = TicklengthLevelOne
+        scene.playTheme()
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(swiftris.nextShape!) {
