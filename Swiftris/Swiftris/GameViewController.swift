@@ -8,13 +8,15 @@
 
 import UIKit
 import SpriteKit
-//import SceneKit
+import AVFoundation
 
 class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
     var panPointReference:CGPoint? // keep track of last point when pan begins
+    var player:AVAudioPlayer!
+    var isPause: Bool = false
    
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -39,35 +41,47 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
 // Present the scene
     skView.presentScene(scene)
-
-// #2
-/*        scene.addPreviewShapeToScene(swiftris.nextShape!) {
-            self.swiftris.nextShape?.moveTo(StartingColumn, row: StartingRow)
-            self.scene.movePreviewShape(self.swiftris.nextShape!) {
-                let nextShapes = self.swiftris.newShape()
-                self.scene.startTicking()
-                self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
-            }
-        }
-*/
+        
+// play Russian theme song
+        let path = NSBundle.mainBundle().pathForResource("theme", ofType:"mp3")
+        let fileURL = NSURL(fileURLWithPath: path!)
+        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        player.prepareToPlay()
+        player.play()
 }
+
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    
     @IBAction func playPause(sender: UIButton) {
-        scene.stopTicking()
-        scene.stopTheme()
+        
+        if isPause {
+            isPause = false
+            scene.startTicking()
+            player.play()
+            sender.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
+        } else {
+            isPause = true
+            scene.stopTicking()
+            player.pause()
+            sender.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
+        }
     }
     
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
     
     @IBAction func didTap(sender: UITapGestureRecognizer) {
-        swiftris.rotateShape()
+        if (isPause){
+            return
+        }
+            swiftris.rotateShape()
     }
     
     @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        if (isPause){
+            return
+        }
         let currentPoint = sender.translationInView(self.view) // measure of translation distance
         if let originalPoint = panPointReference {
             if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
@@ -85,9 +99,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        if (isPause){
+            return
+        }
         swiftris.dropShape()
     }
-    
+   
     // let all gesture recognizer work together but sometimes they might collide
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
         return true
@@ -130,7 +147,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
         scene.tickLengthMillis = TicklengthLevelOne
-        scene.playTheme()
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(swiftris.nextShape!) {
