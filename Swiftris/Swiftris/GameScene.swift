@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+// import SceneKit
 
 // #1 define new constant
 
@@ -26,6 +27,7 @@ class GameScene: SKScene {
     var lastTick:NSDate? // last time we experienced a tick
     
     var textureCache = Dictionary<String, SKTexture>()
+    
     
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoder not supported")
@@ -53,13 +55,22 @@ class GameScene: SKScene {
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
         
-    runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true))) // set up looping sound playback action for Russian theme song
+     //runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true))) // set up looping sound playback action for Russian theme song
+    
+    }
+    
+    func playTheme() {
+        runAction(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true), withKey:("theme")) // we do not need repeatActionForever for it to repeatForever
+    }
+    
+    func stopTheme() {
+        removeAllActions()
     }
     
     func playSound(sound:String) { // method for GameViewController to play any sound file on demand
         runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
