@@ -11,7 +11,7 @@ import SpriteKit
 // #1 define new constant
 
 let BlockSize: CGFloat = 20.0  // the lower resolution
-let TicklengthLevelOne = NSTimeInterval(600) // less is faster
+let TicklengthLevelOne = NSTimeInterval(800) // less is faster
 
 class GameScene: SKScene {
     

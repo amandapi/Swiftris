@@ -17,10 +17,13 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var panPointReference:CGPoint? // keep track of last point when pan begins
     var player:AVAudioPlayer!
     var isPause: Bool = false
+    var timer = NSTimer()     // for countdown timer
+    var timerCount = 15       // for countdown timer
+    var timerRunning = false  // for countdown timer
    
     @IBOutlet weak var scoreLabel: UILabel!
-    
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var countdownLabel: UILabel!  // for countdown timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +46,15 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     skView.presentScene(scene)
         
 // play Russian theme song
-        let path = NSBundle.mainBundle().pathForResource("theme", ofType:"mp3")
-        let fileURL = NSURL(fileURLWithPath: path!)
-        player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
-        player.prepareToPlay()
-        player.play()
+    let path = NSBundle.mainBundle().pathForResource("theme", ofType:"mp3")
+    let fileURL = NSURL(fileURLWithPath: path!)
+    player = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+    player.numberOfLoops = -1  // loop theme infinitely
+    player.prepareToPlay()
+    player.play()
+
+// start countdown
+    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
 }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -55,18 +62,24 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBAction func playPause(sender: UIButton) {
-        
         if isPause {
             isPause = false
             scene.startTicking()
             player.play()
+            startCountdown()
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
             sender.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         } else {
             isPause = true
             scene.stopTicking()
             player.pause()
+            timer.invalidate()
             sender.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
         }
+    }
+    
+    func restartGame() {
+        scene.removeAllChildren()
     }
     
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
@@ -146,6 +159,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameDidBegin(swiftris: Swiftris) {
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
+        countdownLabel.text = "\(timerCount)"  // for countdown timer
         scene.tickLengthMillis = TicklengthLevelOne
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
@@ -155,6 +169,28 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         } else {
             nextShape()
         }
+    }
+    
+    func startCountdown() { // for countdown timer
+        
+        if timerCount > 0 {
+        timerCount -= 1
+        countdownLabel.text = "\(timerCount)"
+        } else if timerCount == 0 {
+            timer.invalidate()
+            self.GameOverAlert()
+            scene.stopTicking()
+            player.stop()
+            view.userInteractionEnabled = false
+            scene.playSound("gameover.mp3")
+            }
+        }
+    
+    func GameOverAlert() {
+        let alertView = UIAlertController(title: "GAME OVER", message: "You reached level \(swiftris.level) and scored \(swiftris.score)", preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.restartGame()}))
+        presentViewController(alertView, animated: true, completion: nil)
     }
     
     func gameDidEnd(swiftris: Swiftris) {
@@ -168,10 +204,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     func gameDidLevelUp(swiftris: Swiftris) {
         levelLabel.text = "\(swiftris.level)"
-        if scene.tickLengthMillis >= 100 {
-            scene.tickLengthMillis -= 100
-        } else if scene.tickLengthMillis > 50 {
-            scene.tickLengthMillis -= 50
+        if scene.tickLengthMillis >= 100 { 
+            scene.tickLengthMillis -= 100       // -= 100
+        } else if scene.tickLengthMillis <= 50 { // > 50
+            scene.tickLengthMillis -= 50        // -= 50
         }
         scene.playSound("levelup.mp3")
     }
@@ -208,3 +244,4 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
 }
+

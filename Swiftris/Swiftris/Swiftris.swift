@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
+
 // #1
 let NumColumns = 10
 let NumRows = 20
@@ -17,7 +18,7 @@ let PreviewColumn = 12
 let PreviewRow = 1
 
 let PointsPerLine = 10    // scoring
-let LevelThreshold = 1000 // levels
+let LevelThreshold = 20 // Yay! now we can level up at every 20 points!
 
 protocol SwiftrisDelegate {
     // invoked when the current round of Swiftris ends
@@ -40,17 +41,19 @@ protocol SwiftrisDelegate {
 }
 
 class Swiftris {
+    
     var blockArray:Array2D<Block>
     var nextShape:Shape?
     var fallingShape:Shape?
     var delegate:SwiftrisDelegate?   // receive updates
     
+    
     var score:Int
     var level:Int
     
     init() {
-          score = 0
-          level = 1
+        score = 0
+        level = 1
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
@@ -76,7 +79,6 @@ class Swiftris {
             endGame()
             return (nil, nil)
         }
-        
         return (fallingShape, nextShape)
     }
     
