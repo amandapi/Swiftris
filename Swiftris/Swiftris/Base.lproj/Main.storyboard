@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -115,6 +115,7 @@
                     <connections>
                         <outlet property="countdownLabel" destination="6ch-Du-1ow" id="U8t-U5-pnb"/>
                         <outlet property="levelLabel" destination="ogW-5e-VJV" id="2mV-BC-qm2"/>
+                        <outlet property="playPauseButton" destination="THP-A3-xYv" id="iUW-ud-mJQ"/>
                         <outlet property="scoreLabel" destination="RJa-V4-UNM" id="Nog-aa-DaC"/>
                     </connections>
                 </viewController>

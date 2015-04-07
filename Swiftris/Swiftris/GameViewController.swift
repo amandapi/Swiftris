@@ -20,6 +20,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var timer = NSTimer()     // for countdown timer
     var timerCount = 90       // for countdown timer
    
+    @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!  // for countdown timer
@@ -30,8 +31,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     // Register for notification with NSNotificationCenter so that GameViewController will receive applicationWillResignActive notifications
         
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "swiftrisDidEnterBackground", name: UIApplicationWillResignActiveNotification, object: nil)
-        
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "swiftrisDidEnterForeground", name: UIApplicationDidBecomeActiveNotification, object: nil)
         
     // Configure the view
     let skView = view as SKView
@@ -67,19 +66,23 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBAction func playPause(sender: UIButton) {
+        setPaused(!isPause)
+    }
+    
+    func setPaused(paused: Bool) {
+        isPause = paused
+        
         if isPause {
-            isPause = false
+            scene.stopTicking()
+            player.pause()
+            timer.invalidate()
+            playPauseButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
+        } else {
             scene.startTicking()
             player.play()
             startCountdown()
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
-            sender.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
-        } else {
-            isPause = true
-            scene.stopTicking()
-            player.pause()
-            timer.invalidate()
-            sender.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
+            playPauseButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         }
     }
     
@@ -122,24 +125,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     // Notification
     
     func swiftrisDidEnterBackground() {  // read with NSNotification
-        if !isPause {
-            isPause = true
-            scene.stopTicking()
-            player.pause()
-            timer.invalidate()
+        setPaused(true)
+        
         NSLog("From GameViewController: swiftrisDidEnterBackground")
-        }
-    }
-    
-    func swiftrisDidEnterForeground() {  // read with NSNotification
-        if isPause {
-            isPause = false
-            scene.startTicking()
-            player.play()
-            startCountdown()
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
-        NSLog("From GameViewController: swiftrisDidEnterForeground")
-        }
     }
    
     // let all gesture recognizer work together but sometimes they might collide
