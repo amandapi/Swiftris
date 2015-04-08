@@ -18,16 +18,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var player:AVAudioPlayer!
     var isPause: Bool = false
     var timer = NSTimer()     // for countdown timer
-    var timerCount = 15       // for countdown timer
-    var timerRunning = false  // for countdown timer
+    var timerCount = 90       // for countdown timer
    
+    @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!  // for countdown timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+    // Register for notification with NSNotificationCenter so that GameViewController will receive applicationWillResignActive notifications
+        
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "swiftrisDidEnterBackground", name: UIApplicationWillResignActiveNotification, object: nil)
+        
     // Configure the view
     let skView = view as SKView
     skView.multipleTouchEnabled = false
@@ -62,24 +66,24 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     @IBAction func playPause(sender: UIButton) {
+        setPaused(!isPause)
+    }
+    
+    func setPaused(paused: Bool) {
+        isPause = paused
+        
         if isPause {
-            isPause = false
+            scene.stopTicking()
+            player.pause()
+            timer.invalidate()
+            playPauseButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
+        } else {
             scene.startTicking()
             player.play()
             startCountdown()
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
-            sender.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
-        } else {
-            isPause = true
-            scene.stopTicking()
-            player.pause()
-            timer.invalidate()
-            sender.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
+            playPauseButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         }
-    }
-    
-    func restartGame() {
-        scene.removeAllChildren()
     }
     
 // #3 lower falling shape by 1 row then asks GameScene to redraw shape at new location
@@ -116,6 +120,14 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             return
         }
         swiftris.dropShape()
+    }
+    
+    // Notification
+    
+    func swiftrisDidEnterBackground() {  // read with NSNotification
+        setPaused(true)
+        
+        NSLog("From GameViewController: swiftrisDidEnterBackground")
     }
    
     // let all gesture recognizer work together but sometimes they might collide
@@ -172,7 +184,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
     
     func startCountdown() { // for countdown timer
-        
+    
         if timerCount > 0 {
         timerCount -= 1
         countdownLabel.text = "\(timerCount)"
@@ -189,8 +201,15 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func GameOverAlert() {
         let alertView = UIAlertController(title: "GAME OVER", message: "You reached level \(swiftris.level) and scored \(swiftris.score)", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.restartGame()}))
+        alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.reset()}))
         presentViewController(alertView, animated: true, completion: nil)
+    }
+    
+    func reset() {
+        scene.removeAllChildren()
+        scene.stopTicking()
+        viewDidLoad()
+        timerCount = 90
     }
     
     func gameDidEnd(swiftris: Swiftris) {
@@ -198,7 +217,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.stopTicking()
         scene.playSound("gameover.mp3")
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
-            swiftris.beginGame()
+        swiftris.beginGame()
         }
     }
     
@@ -242,6 +261,5 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(swiftris.fallingShape!) {}
     }
-    
 }
 

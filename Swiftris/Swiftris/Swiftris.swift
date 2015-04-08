@@ -17,7 +17,7 @@ let StartingRow = 0
 let PreviewColumn = 12
 let PreviewRow = 1
 
-let PointsPerLine = 10    // scoring
+let PointsPerLine = 10    // 
 let LevelThreshold = 20 // Yay! now we can level up at every 20 points!
 
 protocol SwiftrisDelegate {
@@ -46,7 +46,6 @@ class Swiftris {
     var nextShape:Shape?
     var fallingShape:Shape?
     var delegate:SwiftrisDelegate?   // receive updates
-    
     
     var score:Int
     var level:Int
@@ -82,7 +81,6 @@ class Swiftris {
         return (fallingShape, nextShape)
     }
     
-    
 // #4 illegal when (1) block exceed gameboard size or (2) block overlap another block
     func detectIllegalPlacement() -> Bool {
         if let shape = fallingShape {
@@ -97,7 +95,6 @@ class Swiftris {
         }
         return false
     }
-    
     
 // #5 add shape to collection of block. Once block becomes part of game board, falling shape is nullified
     func settleShape() {
@@ -128,6 +125,7 @@ class Swiftris {
         level = 1
         delegate?.gameDidEnd(self)
     }
+    
     
 // #7 func returns a tuple - 2 arrays: linesRomoved and fallenBlocks
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
@@ -213,6 +211,7 @@ class Swiftris {
             }
         }
     }
+
     
 // #14 implement rotated shapes
     func rotateShape() {

@@ -144,6 +144,7 @@ class GameScene: SKScene {
 // animation for flair
     
 // take in the tuple data which swiftris returns each line is removed
+    
     func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:() -> ()) {
         var longestDuration: NSTimeInterval = 0
 // #2 iterate blocks from left toright, column by column, block by block
@@ -196,6 +197,5 @@ class GameScene: SKScene {
 // #7 run completion after a duration matching the time it will take to drop the last block
         runAction(SKAction.waitForDuration(longestDuration), completion:completion)
     }
-    
 }
 
