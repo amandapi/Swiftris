@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A2A2F111ABF55B9004F631A /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A2F101ABF55B9004F631A /* Swiftris.swift */; };
 		0A38FFD31AB9FC8600CFC09D /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38FFD21AB9FC8600CFC09D /* Array2D.swift */; };
-		0A4733221AC4B83E00E4A638 /* playPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4733211AC4B83E00E4A638 /* playPause.png */; };
 		0A4733241AC4B89000E4A638 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4733231AC4B89000E4A638 /* pause.png */; };
 		0A4733261AC4B89500E4A638 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4733251AC4B89500E4A638 /* play.png */; };
 		0A6AFAF61ABE14C1000D17B2 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6AFAF51ABE14C1000D17B2 /* Shape.swift */; };
@@ -39,6 +38,8 @@
 		0A8705D51AB8EA5C00BF12FA /* gameboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8705CF1AB8EA5C00BF12FA /* gameboard@2x.png */; };
 		0A8705D61AB8EA5C00BF12FA /* whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8705D01AB8EA5C00BF12FA /* whitebg.png */; };
 		0A8705D71AB8EA5C00BF12FA /* whitebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8705D11AB8EA5C00BF12FA /* whitebg@2x.png */; };
+		0A89C6391AD5E40E00C7B9D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A89C6381AD5E40E00C7B9D3 /* HomeViewController.swift */; };
+		0AC5330B1ADB3EA60057EA10 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5330A1ADB3EA60057EA10 /* Overlay.swift */; };
 		0AFD4FC61ABC94A100AE5EDD /* block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD4FC51ABC94A100AE5EDD /* block.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +56,6 @@
 /* Begin PBXFileReference section */
 		0A2A2F101ABF55B9004F631A /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
 		0A38FFD21AB9FC8600CFC09D /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
-		0A4733211AC4B83E00E4A638 /* playPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playPause.png; sourceTree = "<group>"; };
 		0A4733231AC4B89000E4A638 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		0A4733251AC4B89500E4A638 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		0A6AFAF51ABE14C1000D17B2 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
@@ -89,6 +89,8 @@
 		0A8705CF1AB8EA5C00BF12FA /* gameboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameboard@2x.png"; sourceTree = "<group>"; };
 		0A8705D01AB8EA5C00BF12FA /* whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitebg.png; sourceTree = "<group>"; };
 		0A8705D11AB8EA5C00BF12FA /* whitebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitebg@2x.png"; sourceTree = "<group>"; };
+		0A89C6381AD5E40E00C7B9D3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0AC5330A1ADB3EA60057EA10 /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		0AFD4FC51ABC94A100AE5EDD /* block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,15 +136,7 @@
 				0A87059B1AB8E61200BF12FA /* AppDelegate.swift */,
 				0A87059F1AB8E61200BF12FA /* GameScene.swift */,
 				0A8705A11AB8E61200BF12FA /* GameViewController.swift */,
-				0A8705A31AB8E61200BF12FA /* Main.storyboard */,
-				0A8705A61AB8E61200BF12FA /* Images.xcassets */,
-				0A4733211AC4B83E00E4A638 /* playPause.png */,
-				0A4733231AC4B89000E4A638 /* pause.png */,
-				0A4733251AC4B89500E4A638 /* play.png */,
-				0A8705A81AB8E61200BF12FA /* LaunchScreen.xib */,
-				0A8705CA1AB8E9EF00BF12FA /* Sprites.atlas */,
-				0A8705BF1AB8E9BD00BF12FA /* Sounds */,
-				0A8705991AB8E61200BF12FA /* Supporting Files */,
+				0A89C6381AD5E40E00C7B9D3 /* HomeViewController.swift */,
 				0A38FFD21AB9FC8600CFC09D /* Array2D.swift */,
 				0AFD4FC51ABC94A100AE5EDD /* block.swift */,
 				0A6AFAF51ABE14C1000D17B2 /* Shape.swift */,
@@ -154,6 +148,15 @@
 				0A6AFAF91ABE1BE4000D17B2 /* TShape.swift */,
 				0A6AFAF71ABE1BB5000D17B2 /* SquareShape.swift */,
 				0A2A2F101ABF55B9004F631A /* Swiftris.swift */,
+				0AC5330A1ADB3EA60057EA10 /* Overlay.swift */,
+				0A8705A31AB8E61200BF12FA /* Main.storyboard */,
+				0A8705A61AB8E61200BF12FA /* Images.xcassets */,
+				0A4733231AC4B89000E4A638 /* pause.png */,
+				0A4733251AC4B89500E4A638 /* play.png */,
+				0A8705A81AB8E61200BF12FA /* LaunchScreen.xib */,
+				0A8705CA1AB8E9EF00BF12FA /* Sprites.atlas */,
+				0A8705BF1AB8E9BD00BF12FA /* Sounds */,
+				0A8705991AB8E61200BF12FA /* Supporting Files */,
 			);
 			path = Swiftris;
 			sourceTree = "<group>";
@@ -289,7 +292,6 @@
 				0A8705D21AB8EA5C00BF12FA /* background.png in Resources */,
 				0A8705C61AB8E9BD00BF12FA /* drop.mp3 in Resources */,
 				0A8705D71AB8EA5C00BF12FA /* whitebg@2x.png in Resources */,
-				0A4733221AC4B83E00E4A638 /* playPause.png in Resources */,
 				0A8705C91AB8E9BD00BF12FA /* theme.mp3 in Resources */,
 				0A8705C71AB8E9BD00BF12FA /* gameover.mp3 in Resources */,
 				0A4733261AC4B89500E4A638 /* play.png in Resources */,
@@ -321,10 +323,12 @@
 				0A6AFAF61ABE14C1000D17B2 /* Shape.swift in Sources */,
 				0AFD4FC61ABC94A100AE5EDD /* block.swift in Sources */,
 				0A2A2F111ABF55B9004F631A /* Swiftris.swift in Sources */,
+				0A89C6391AD5E40E00C7B9D3 /* HomeViewController.swift in Sources */,
 				0A6AFAFC1ABE1BF8000D17B2 /* LineShape.swift in Sources */,
 				0A6AFAFE1ABE1C06000D17B2 /* SShape.swift in Sources */,
 				0A6AFAFA1ABE1BE4000D17B2 /* TShape.swift in Sources */,
 				0A38FFD31AB9FC8600CFC09D /* Array2D.swift in Sources */,
+				0AC5330B1ADB3EA60057EA10 /* Overlay.swift in Sources */,
 				0A6AFB021ABE1C2E000D17B2 /* LShape.swift in Sources */,
 				0A6AFB001ABE1C20000D17B2 /* ZShape.swift in Sources */,
 				0A8705A21AB8E61200BF12FA /* GameViewController.swift in Sources */,

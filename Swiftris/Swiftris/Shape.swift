@@ -116,9 +116,15 @@ class Shape: Hashable, Printable {
     final func rotateBlocks(orientation: Orientation) {
         if let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] {
 // #9 to iterate thru array with index var idx and contents (columnDiff, rowDiff)
-            for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
-                blocks[idx].column = column + columnDiff
-                blocks[idx].row = row + rowDiff
+        //    for (idx, (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
+        //        blocks[idx].column = column + columnDiff
+        //        blocks[idx].row = row + rowDiff
+        // the above does not work after Xcode 6.3.1, so use the followings
+            
+            for (idx, element: (columnDiff:Int, rowDiff:Int)) in enumerate(blockRowColumnTranslation) {
+                    blocks[idx].column = column + element.columnDiff
+                    blocks[idx].row = row + element.rowDiff
+            
             }
         }
     }
