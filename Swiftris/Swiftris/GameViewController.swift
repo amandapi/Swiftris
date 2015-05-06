@@ -18,12 +18,13 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     var player:AVAudioPlayer!
     var isPause: Bool = false
     var timer = NSTimer()     // for countdown timer
-    var timerCount = 90       // for countdown timer
+    //var timerCount = 30       // for countdown timer, better not hard code values in
+    var timerCount = Int()   // for countdown timer
    
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var countdownLabel: UILabel!  // for countdown timer
+    @IBOutlet weak var countdownLabel: UILabel! // for countdown timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "swiftrisDidEnterBackground", name: UIApplicationWillResignActiveNotification, object: nil)
         
     // Configure the view
-    let skView = view as SKView
+    let skView = view as! SKView // changed as to as!
     skView.multipleTouchEnabled = false
     
     // Create and configure the scene
@@ -58,6 +59,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     player.play()
 
 // start countdown
+        
     timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
 }
 
@@ -76,8 +78,10 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             scene.stopTicking()
             player.pause()
             timer.invalidate()
+            LoadingOverlay.shared.showOverlay(self.view)  // calling Overlay.swift
             playPauseButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
         } else {
+            LoadingOverlay.shared.hideOverlayView() // calling Overlay.swift
             scene.startTicking()
             player.play()
             startCountdown()
@@ -131,12 +135,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     }
    
     // let all gesture recognizer work together but sometimes they might collide
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
     // optional cast priorities: tap, pan, swipe
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if let swipeRec = gestureRecognizer as? UISwipeGestureRecognizer {
             if let panRec = otherGestureRecognizer as? UIPanGestureRecognizer {
                 return true
@@ -152,8 +156,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func didTick() {
 // #4 substitute previous codes
         swiftris.letShapeFall()
-        //swiftris.fallingShape?.lowerShapeByOneRow()
-        //scene.redrawShape(swiftris.fallingShape!, completion: {})
     }
     
     func nextShape() {
