@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  Classic GameViewController.swift
 //  Swiftris
 //
 //  Created by Amanda Pi on 2015-03-17.
@@ -10,21 +10,20 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
-class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
+class ClassicGameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
     var panPointReference:CGPoint? // keep track of last point when pan begins
     var player:AVAudioPlayer!
     var isPause: Bool = false
-    var timer = NSTimer()     // for countdown timer
-    //var timerCount = 30       // for countdown timer, better not hard code values in
-    var timerCount = Int()   // for countdown timer
+    //var timer = NSTimer()     // for countdown timer
+    //var timerCount = Int()   // for countdown timer
    
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var countdownLabel: UILabel! // for countdown timer
+    //@IBOutlet weak var countdownLabel: UILabel! // for countdown timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +59,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
 
 // start countdown
         
-    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
+    //timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
 }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -75,17 +74,20 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         isPause = paused
         
         if isPause {
+            
             scene.stopTicking()
-            player.pause()
+/*
             timer.invalidate()
+*/
+            player.pause()
             LoadingOverlay.shared.showOverlay(self.view)  // calling Overlay.swift
             playPauseButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
         } else {
             LoadingOverlay.shared.hideOverlayView() // calling Overlay.swift
             scene.startTicking()
             player.play()
-            startCountdown()
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
+            //startCountdown()
+            //timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("startCountdown"), userInfo: nil, repeats: true)
             playPauseButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         }
     }
@@ -174,7 +176,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
-        countdownLabel.text = "\(timerCount)"  // for countdown timer
+        //countdownLabel.text = "\(timerCount)"  // for countdown timer
         scene.tickLengthMillis = TicklengthLevelOne
         // The following is false when restarting a new game
         if swiftris.nextShape != nil && swiftris.nextShape!.blocks[0].sprite == nil {
@@ -186,7 +188,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
     }
     
-    func startCountdown() { // for countdown timer
+/*  func startCountdown() { // for countdown timer
     
         if timerCount > 0 {
         timerCount -= 1
@@ -200,6 +202,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             scene.playSound("gameover.mp3")
             }
         }
+*/
     
     func GameOverAlert() {
         
@@ -213,13 +216,17 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.removeAllChildren()
         scene.stopTicking()
         viewDidLoad()
-        timerCount = 90
+        //timerCount = 90
     }
     
     func gameDidEnd(swiftris: Swiftris) {
         view.userInteractionEnabled = false
         scene.stopTicking()
         scene.playSound("gameover.mp3")
+        // added these 3 lines
+        self.GameOverAlert()
+        scene.stopTicking()
+        player.stop()
         scene.animateCollapsingLines(swiftris.removeAllBlocks(), fallenBlocks: Array<Array<Block>>()) {
         swiftris.beginGame()
         }

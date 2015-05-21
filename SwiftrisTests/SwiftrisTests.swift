@@ -2,8 +2,8 @@
 //  SwiftrisTests.swift
 //  SwiftrisTests
 //
-//  Created by Amanda Pi on 2015-05-21.
-//  Copyright (c) 2015 Amanda. All rights reserved.
+//  Created by Amanda Pi on 2015-03-17.
+//  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
 import UIKit

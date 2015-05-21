@@ -7,14 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A3A68E51B0E84580080CB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A68E41B0E84580080CB51 /* AppDelegate.swift */; };
-		0A3A68E71B0E84580080CB51 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A68E61B0E84580080CB51 /* GameScene.sks */; };
-		0A3A68E91B0E84580080CB51 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A68E81B0E84580080CB51 /* GameScene.swift */; };
-		0A3A68EB1B0E84580080CB51 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A68EA1B0E84580080CB51 /* GameViewController.swift */; };
-		0A3A68EE1B0E84580080CB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A68EC1B0E84580080CB51 /* Main.storyboard */; };
-		0A3A68F01B0E84580080CB51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A68EF1B0E84580080CB51 /* Images.xcassets */; };
-		0A3A68F31B0E84580080CB51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A68F11B0E84580080CB51 /* LaunchScreen.xib */; };
-		0A3A68FF1B0E84580080CB51 /* SwiftrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A68FE1B0E84580080CB51 /* SwiftrisTests.swift */; };
+		0A3A69091B0E85150080CB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A69081B0E85150080CB51 /* Main.storyboard */; };
+		0A3A690C1B0E85860080CB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A690B1B0E85860080CB51 /* AppDelegate.swift */; };
+		0A3A691E1B0E85A90080CB51 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A690D1B0E85A90080CB51 /* StartViewController.swift */; };
+		0A3A691F1B0E85A90080CB51 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A690E1B0E85A90080CB51 /* GameViewController.swift */; };
+		0A3A69201B0E85A90080CB51 /* ClassicGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A690F1B0E85A90080CB51 /* ClassicGameViewController.swift */; };
+		0A3A69211B0E85A90080CB51 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69101B0E85A90080CB51 /* HomeViewController.swift */; };
+		0A3A69221B0E85A90080CB51 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69111B0E85A90080CB51 /* GameScene.swift */; };
+		0A3A69231B0E85A90080CB51 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69121B0E85A90080CB51 /* Array2D.swift */; };
+		0A3A69241B0E85A90080CB51 /* block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69131B0E85A90080CB51 /* block.swift */; };
+		0A3A69251B0E85A90080CB51 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69141B0E85A90080CB51 /* Shape.swift */; };
+		0A3A69261B0E85A90080CB51 /* JShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69151B0E85A90080CB51 /* JShape.swift */; };
+		0A3A69271B0E85A90080CB51 /* LShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69161B0E85A90080CB51 /* LShape.swift */; };
+		0A3A69281B0E85A90080CB51 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69171B0E85A90080CB51 /* ZShape.swift */; };
+		0A3A69291B0E85A90080CB51 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69181B0E85A90080CB51 /* SShape.swift */; };
+		0A3A692A1B0E85A90080CB51 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69191B0E85A90080CB51 /* LineShape.swift */; };
+		0A3A692B1B0E85A90080CB51 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A691A1B0E85A90080CB51 /* TShape.swift */; };
+		0A3A692C1B0E85A90080CB51 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A691B1B0E85A90080CB51 /* SquareShape.swift */; };
+		0A3A692D1B0E85A90080CB51 /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A691C1B0E85A90080CB51 /* Swiftris.swift */; };
+		0A3A692E1B0E85A90080CB51 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A691D1B0E85A90080CB51 /* Overlay.swift */; };
+		0A3A69321B0E85C30080CB51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A692F1B0E85C30080CB51 /* Images.xcassets */; };
+		0A3A69331B0E85C30080CB51 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A69301B0E85C30080CB51 /* pause.png */; };
+		0A3A69341B0E85C30080CB51 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A69311B0E85C30080CB51 /* play.png */; };
+		0A3A69361B0E85EA0080CB51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A69351B0E85EA0080CB51 /* LaunchScreen.xib */; };
+		0A3A69381B0E86060080CB51 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A69371B0E86060080CB51 /* Sprites.atlas */; };
+		0A3A693B1B0E86AF0080CB51 /* bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693A1B0E86AF0080CB51 /* bomb.mp3 */; };
+		0A3A69401B0E86B80080CB51 /* drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693C1B0E86B80080CB51 /* drop.mp3 */; };
+		0A3A69411B0E86B80080CB51 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693D1B0E86B80080CB51 /* gameover.mp3 */; };
+		0A3A69421B0E86B80080CB51 /* levelup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693E1B0E86B80080CB51 /* levelup.mp3 */; };
+		0A3A69431B0E86B80080CB51 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693F1B0E86B80080CB51 /* theme.mp3 */; };
+		0A3A69461B0E86E90080CB51 /* SwiftrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */; };
+		0A3A69481B0E87660080CB51 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3A69471B0E87660080CB51 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +53,41 @@
 /* Begin PBXFileReference section */
 		0A3A68DF1B0E84580080CB51 /* Swiftris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3A68E31B0E84580080CB51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A3A68E41B0E84580080CB51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A3A68E61B0E84580080CB51 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0A3A68E81B0E84580080CB51 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		0A3A68EA1B0E84580080CB51 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		0A3A68ED1B0E84580080CB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A3A68EF1B0E84580080CB51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0A3A68F21B0E84580080CB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0A3A68F81B0E84580080CB51 /* SwiftrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3A68FD1B0E84580080CB51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A3A68FE1B0E84580080CB51 /* SwiftrisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftrisTests.swift; sourceTree = "<group>"; };
+		0A3A69081B0E85150080CB51 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0A3A690A1B0E85850080CB51 /* Swiftris-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swiftris-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A3A690B1B0E85860080CB51 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A3A690D1B0E85A90080CB51 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0A3A690E1B0E85A90080CB51 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0A3A690F1B0E85A90080CB51 /* ClassicGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicGameViewController.swift; sourceTree = "<group>"; };
+		0A3A69101B0E85A90080CB51 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0A3A69111B0E85A90080CB51 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0A3A69121B0E85A90080CB51 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		0A3A69131B0E85A90080CB51 /* block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = block.swift; sourceTree = "<group>"; };
+		0A3A69141B0E85A90080CB51 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		0A3A69151B0E85A90080CB51 /* JShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JShape.swift; sourceTree = "<group>"; };
+		0A3A69161B0E85A90080CB51 /* LShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LShape.swift; sourceTree = "<group>"; };
+		0A3A69171B0E85A90080CB51 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
+		0A3A69181B0E85A90080CB51 /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
+		0A3A69191B0E85A90080CB51 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		0A3A691A1B0E85A90080CB51 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
+		0A3A691B1B0E85A90080CB51 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		0A3A691C1B0E85A90080CB51 /* Swiftris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
+		0A3A691D1B0E85A90080CB51 /* Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
+		0A3A692F1B0E85C30080CB51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0A3A69301B0E85C30080CB51 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		0A3A69311B0E85C30080CB51 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		0A3A69351B0E85EA0080CB51 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		0A3A69371B0E86060080CB51 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		0A3A693A1B0E86AF0080CB51 /* bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bomb.mp3; sourceTree = "<group>"; };
+		0A3A693C1B0E86B80080CB51 /* drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop.mp3; sourceTree = "<group>"; };
+		0A3A693D1B0E86B80080CB51 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
+		0A3A693E1B0E86B80080CB51 /* levelup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelup.mp3; sourceTree = "<group>"; };
+		0A3A693F1B0E86B80080CB51 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
+		0A3A69441B0E86E80080CB51 /* SwiftrisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftrisTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftrisTests.swift; sourceTree = "<group>"; };
+		0A3A69471B0E87660080CB51 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3A69481B0E87660080CB51 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +112,7 @@
 		0A3A68D61B0E84580080CB51 = {
 			isa = PBXGroup;
 			children = (
+				0A3A69471B0E87660080CB51 /* GameKit.framework */,
 				0A3A68E11B0E84580080CB51 /* Swiftris */,
 				0A3A68FB1B0E84580080CB51 /* SwiftrisTests */,
 				0A3A68E01B0E84580080CB51 /* Products */,
@@ -81,14 +131,33 @@
 		0A3A68E11B0E84580080CB51 /* Swiftris */ = {
 			isa = PBXGroup;
 			children = (
-				0A3A68E41B0E84580080CB51 /* AppDelegate.swift */,
-				0A3A68E61B0E84580080CB51 /* GameScene.sks */,
-				0A3A68E81B0E84580080CB51 /* GameScene.swift */,
-				0A3A68EA1B0E84580080CB51 /* GameViewController.swift */,
-				0A3A68EC1B0E84580080CB51 /* Main.storyboard */,
-				0A3A68EF1B0E84580080CB51 /* Images.xcassets */,
-				0A3A68F11B0E84580080CB51 /* LaunchScreen.xib */,
+				0A3A69081B0E85150080CB51 /* Main.storyboard */,
+				0A3A690D1B0E85A90080CB51 /* StartViewController.swift */,
+				0A3A690E1B0E85A90080CB51 /* GameViewController.swift */,
+				0A3A690F1B0E85A90080CB51 /* ClassicGameViewController.swift */,
+				0A3A69101B0E85A90080CB51 /* HomeViewController.swift */,
+				0A3A69111B0E85A90080CB51 /* GameScene.swift */,
+				0A3A69121B0E85A90080CB51 /* Array2D.swift */,
+				0A3A69131B0E85A90080CB51 /* block.swift */,
+				0A3A69141B0E85A90080CB51 /* Shape.swift */,
+				0A3A69151B0E85A90080CB51 /* JShape.swift */,
+				0A3A69161B0E85A90080CB51 /* LShape.swift */,
+				0A3A69171B0E85A90080CB51 /* ZShape.swift */,
+				0A3A69181B0E85A90080CB51 /* SShape.swift */,
+				0A3A69191B0E85A90080CB51 /* LineShape.swift */,
+				0A3A691A1B0E85A90080CB51 /* TShape.swift */,
+				0A3A691B1B0E85A90080CB51 /* SquareShape.swift */,
+				0A3A691C1B0E85A90080CB51 /* Swiftris.swift */,
+				0A3A691D1B0E85A90080CB51 /* Overlay.swift */,
+				0A3A690B1B0E85860080CB51 /* AppDelegate.swift */,
+				0A3A692F1B0E85C30080CB51 /* Images.xcassets */,
+				0A3A69301B0E85C30080CB51 /* pause.png */,
+				0A3A69311B0E85C30080CB51 /* play.png */,
+				0A3A69351B0E85EA0080CB51 /* LaunchScreen.xib */,
+				0A3A69371B0E86060080CB51 /* Sprites.atlas */,
+				0A3A69391B0E868D0080CB51 /* Sounds */,
 				0A3A68E21B0E84580080CB51 /* Supporting Files */,
+				0A3A690A1B0E85850080CB51 /* Swiftris-Bridging-Header.h */,
 			);
 			path = Swiftris;
 			sourceTree = "<group>";
@@ -104,8 +173,9 @@
 		0A3A68FB1B0E84580080CB51 /* SwiftrisTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A3A68FE1B0E84580080CB51 /* SwiftrisTests.swift */,
+				0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */,
 				0A3A68FC1B0E84580080CB51 /* Supporting Files */,
+				0A3A69441B0E86E80080CB51 /* SwiftrisTests-Bridging-Header.h */,
 			);
 			path = SwiftrisTests;
 			sourceTree = "<group>";
@@ -116,6 +186,18 @@
 				0A3A68FD1B0E84580080CB51 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A3A69391B0E868D0080CB51 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0A3A693A1B0E86AF0080CB51 /* bomb.mp3 */,
+				0A3A693C1B0E86B80080CB51 /* drop.mp3 */,
+				0A3A693D1B0E86B80080CB51 /* gameover.mp3 */,
+				0A3A693E1B0E86B80080CB51 /* levelup.mp3 */,
+				0A3A693F1B0E86B80080CB51 /* theme.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +280,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3A68F31B0E84580080CB51 /* LaunchScreen.xib in Resources */,
-				0A3A68F01B0E84580080CB51 /* Images.xcassets in Resources */,
-				0A3A68E71B0E84580080CB51 /* GameScene.sks in Resources */,
-				0A3A68EE1B0E84580080CB51 /* Main.storyboard in Resources */,
+				0A3A69381B0E86060080CB51 /* Sprites.atlas in Resources */,
+				0A3A69361B0E85EA0080CB51 /* LaunchScreen.xib in Resources */,
+				0A3A69421B0E86B80080CB51 /* levelup.mp3 in Resources */,
+				0A3A69431B0E86B80080CB51 /* theme.mp3 in Resources */,
+				0A3A69091B0E85150080CB51 /* Main.storyboard in Resources */,
+				0A3A69401B0E86B80080CB51 /* drop.mp3 in Resources */,
+				0A3A693B1B0E86AF0080CB51 /* bomb.mp3 in Resources */,
+				0A3A69341B0E85C30080CB51 /* play.png in Resources */,
+				0A3A69321B0E85C30080CB51 /* Images.xcassets in Resources */,
+				0A3A69331B0E85C30080CB51 /* pause.png in Resources */,
+				0A3A69411B0E86B80080CB51 /* gameover.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +308,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3A68E91B0E84580080CB51 /* GameScene.swift in Sources */,
-				0A3A68EB1B0E84580080CB51 /* GameViewController.swift in Sources */,
-				0A3A68E51B0E84580080CB51 /* AppDelegate.swift in Sources */,
+				0A3A69231B0E85A90080CB51 /* Array2D.swift in Sources */,
+				0A3A69241B0E85A90080CB51 /* block.swift in Sources */,
+				0A3A69261B0E85A90080CB51 /* JShape.swift in Sources */,
+				0A3A69221B0E85A90080CB51 /* GameScene.swift in Sources */,
+				0A3A69291B0E85A90080CB51 /* SShape.swift in Sources */,
+				0A3A692D1B0E85A90080CB51 /* Swiftris.swift in Sources */,
+				0A3A69211B0E85A90080CB51 /* HomeViewController.swift in Sources */,
+				0A3A69251B0E85A90080CB51 /* Shape.swift in Sources */,
+				0A3A69281B0E85A90080CB51 /* ZShape.swift in Sources */,
+				0A3A69271B0E85A90080CB51 /* LShape.swift in Sources */,
+				0A3A692E1B0E85A90080CB51 /* Overlay.swift in Sources */,
+				0A3A692B1B0E85A90080CB51 /* TShape.swift in Sources */,
+				0A3A690C1B0E85860080CB51 /* AppDelegate.swift in Sources */,
+				0A3A69201B0E85A90080CB51 /* ClassicGameViewController.swift in Sources */,
+				0A3A691F1B0E85A90080CB51 /* GameViewController.swift in Sources */,
+				0A3A691E1B0E85A90080CB51 /* StartViewController.swift in Sources */,
+				0A3A692C1B0E85A90080CB51 /* SquareShape.swift in Sources */,
+				0A3A692A1B0E85A90080CB51 /* LineShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3A68FF1B0E84580080CB51 /* SwiftrisTests.swift in Sources */,
+				0A3A69461B0E86E90080CB51 /* SwiftrisTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,25 +346,6 @@
 			targetProxy = 0A3A68F91B0E84580080CB51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0A3A68EC1B0E84580080CB51 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A3A68ED1B0E84580080CB51 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0A3A68F11B0E84580080CB51 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A3A68F21B0E84580080CB51 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0A3A69001B0E84580080CB51 /* Debug */ = {
@@ -350,9 +435,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swiftris/Swiftris-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -360,9 +448,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Swiftris/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swiftris/Swiftris-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -370,9 +460,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -381,6 +473,8 @@
 				INFOPLIST_FILE = SwiftrisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftrisTests/SwiftrisTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swiftris.app/Swiftris";
 			};
 			name = Debug;
@@ -389,13 +483,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SwiftrisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftrisTests/SwiftrisTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swiftris.app/Swiftris";
 			};
 			name = Release;
