@@ -201,12 +201,18 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             }
         }
     
-    func GameOverAlert() {
+/*    func GameOverAlert() {
         
         let alertView = UIAlertController(title: "GAME OVER", message: "You reached level \(swiftris.level) and scored \(swiftris.score)", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.reset()}))
         presentViewController(alertView, animated: true, completion: nil)
+    }
+*/
+    
+    func GameOverAlert() {
+       // let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+        self.presentViewController(EpilogueViewController(), animated: true, completion: nil)
     }
     
     func reset() {

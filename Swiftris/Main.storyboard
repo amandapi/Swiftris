@@ -26,8 +26,15 @@
                                     <segue destination="bZd-Io-1Nd" kind="push" id="A2h-TA-Eyr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzb-3T-cbF">
+                                <rect key="frame" x="91" y="435" width="138" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Leaderboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-1B-UyA">
-                                <rect key="frame" x="71" y="321" width="179" height="33"/>
+                                <rect key="frame" x="71" y="276" width="179" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Classic Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -289,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="-662" y="158"/>
         </scene>
-        <!--GameViewController-->
+        <!--ClassicGameViewController-->
         <scene sceneID="4yR-Gc-g3P">
             <objects>
-                <viewController title="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7W-9w-Jt1" customClass="ClassicGameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ClassicGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7W-9w-Jt1" customClass="ClassicGameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OZo-Nm-2EU"/>
                         <viewControllerLayoutGuide type="bottom" id="j5V-l7-7u5"/>
@@ -398,6 +405,42 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="702" y="487"/>
+        </scene>
+        <!--EpilogueViewController-->
+        <scene sceneID="JuD-lW-gvq">
+            <objects>
+                <viewController title="EpilogueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ph-eV-KDG" customClass="EpilogueViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nk0-j7-epB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FXn-wE-yD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ilR-jf-Lj6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-vb-0v5">
+                                <rect key="frame" x="118" y="246" width="112" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMN-ap-xjl">
+                                <rect key="frame" x="118" y="134" width="112" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="RMN-ap-xjl" id="GTN-4q-rMl"/>
+                        <outlet property="label" destination="1Vh-vb-0v5" id="Ezr-ik-9lA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYJ-Xr-OBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1173" y="13"/>
         </scene>
     </scenes>
     <resources>
