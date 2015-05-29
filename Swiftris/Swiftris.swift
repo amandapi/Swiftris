@@ -49,9 +49,11 @@ class Swiftris {
     
     var score:Int
     var level:Int
+    var highScore:Int
     
     init() {
         score = 0
+        highScore = 0
         level = 1
         fallingShape = nil
         nextShape = nil

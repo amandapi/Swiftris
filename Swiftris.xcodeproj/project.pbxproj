@@ -37,7 +37,7 @@
 		0A3A69421B0E86B80080CB51 /* levelup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693E1B0E86B80080CB51 /* levelup.mp3 */; };
 		0A3A69431B0E86B80080CB51 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693F1B0E86B80080CB51 /* theme.mp3 */; };
 		0A3A69461B0E86E90080CB51 /* SwiftrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */; };
-		0A7999231B0FD48F00BBBE25 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7999221B0FD48F00BBBE25 /* GameKit.framework */; };
+		0A50FC771B104121008F1573 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A50FC761B104121008F1573 /* GameKit.framework */; };
 		0A7999291B0FDEBA00BBBE25 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7999281B0FDEBA00BBBE25 /* EpilogueViewController.swift */; };
 		0AC912D81B0FCE5400CEF289 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D21B0FCE5400CEF289 /* background.png */; };
 		0AC912D91B0FCE5400CEF289 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D31B0FCE5400CEF289 /* background@2x.png */; };
@@ -94,7 +94,7 @@
 		0A3A693F1B0E86B80080CB51 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		0A3A69441B0E86E80080CB51 /* SwiftrisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftrisTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftrisTests.swift; sourceTree = "<group>"; };
-		0A7999221B0FD48F00BBBE25 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		0A50FC761B104121008F1573 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0A7999281B0FDEBA00BBBE25 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
 		0AC912D21B0FCE5400CEF289 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		0AC912D31B0FCE5400CEF289 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7999231B0FD48F00BBBE25 /* GameKit.framework in Frameworks */,
+				0A50FC771B104121008F1573 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 		0A3A68D61B0E84580080CB51 = {
 			isa = PBXGroup;
 			children = (
-				0A7999221B0FD48F00BBBE25 /* GameKit.framework */,
+				0A50FC761B104121008F1573 /* GameKit.framework */,
 				0A3A68E11B0E84580080CB51 /* Swiftris */,
 				0A3A68FB1B0E84580080CB51 /* SwiftrisTests */,
 				0A3A68E01B0E84580080CB51 /* Products */,
@@ -473,6 +473,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -490,6 +491,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

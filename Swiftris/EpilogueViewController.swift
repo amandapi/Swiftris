@@ -16,8 +16,9 @@ class EpilogueViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         view.backgroundColor = UIColor.lightGrayColor()
-        
+  /*
         var highScoreLabel = UILabel(frame: CGRectMake(80, 80, 180, 100))
         highScoreLabel.textAlignment = NSTextAlignment.Center
         highScoreLabel.backgroundColor = UIColor.darkGrayColor()
@@ -33,6 +34,8 @@ class EpilogueViewController: UIViewController {
         highLevelLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 16.0)
         highLevelLabel.textColor = UIColor.whiteColor()
         self.view.addSubview(highLevelLabel)
+*/
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -19,11 +19,14 @@ class ClassicGameViewController: UIViewController, SwiftrisDelegate, UIGestureRe
     var isPause: Bool = false
     //var timer = NSTimer()     // for countdown timer
     //var timerCount = Int()   // for countdown timer
+
    
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     //@IBOutlet weak var countdownLabel: UILabel! // for countdown timer
+    @IBOutlet weak var highScoreLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,6 +179,9 @@ class ClassicGameViewController: UIViewController, SwiftrisDelegate, UIGestureRe
         
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
+        
+        highScoreLabel.text = "\(swiftris.highScore)"
+
         //countdownLabel.text = "\(timerCount)"  // for countdown timer
         scene.tickLengthMillis = TicklengthLevelOne
         // The following is false when restarting a new game
@@ -204,19 +210,33 @@ class ClassicGameViewController: UIViewController, SwiftrisDelegate, UIGestureRe
         }
 */
     
- /*   func GameOverAlert() {
+    func GameOverAlert() {
         
         let alertView = UIAlertController(title: "GAME OVER", message: "You reached level \(swiftris.level) and scored \(swiftris.score)", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.reset()}))
+        saveHighScore()
         presentViewController(alertView, animated: true, completion: nil)
+    }
+
+/*
+    func GameOverAlert() {
+        self.presentViewController(EpilogueViewController(), animated: true, completion: nil)
     }
 */
     
-    func GameOverAlert() {
-        // let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        self.presentViewController(EpilogueViewController(), animated: true, completion: nil)
+    func saveHighScore() {
+        
+        let highScore = NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        if swiftris.score > NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore") {
+            NSUserDefaults.standardUserDefaults().setInteger(swiftris.score, forKey: "swiftris.highScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        println(highScore)
     }
+
     
     func reset() {
         scene.removeAllChildren()
