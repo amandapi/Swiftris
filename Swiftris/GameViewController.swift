@@ -25,6 +25,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel! // for countdown timer
+    @IBOutlet weak var highScoreLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,6 +176,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
         levelLabel.text = "\(swiftris.level)"
         scoreLabel.text = "\(swiftris.score)"
+        
+        highScoreLabel.text = "\(swiftris.highScore)"
+        
         countdownLabel.text = "\(timerCount)"  // for countdown timer
         scene.tickLengthMillis = TicklengthLevelOne
         // The following is false when restarting a new game
@@ -194,6 +199,13 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         } else if timerCount == 0 {
             timer.invalidate()
             self.GameOverAlert()
+            
+            
+            var userInfo = [String:Int]()
+            userInfo["highScore"] = self.swiftris.score
+            NSNotificationCenter.defaultCenter().postNotificationName("HandleScore", object: nil,userInfo: userInfo)
+            
+            
             scene.stopTicking()
             player.stop()
             view.userInteractionEnabled = false
@@ -206,8 +218,28 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         let alertView = UIAlertController(title: "GAME OVER", message: "You reached level \(swiftris.level) and scored \(swiftris.score)", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         alertView.addAction(UIAlertAction(title: "Play again", style: .Default, handler:{(alertAction)-> Void in self.reset()}))
+        saveHighScore()
         presentViewController(alertView, animated: true, completion: nil)
     }
+
+    
+/*    func GameOverAlert() {
+        self.presentViewController(EpilogueViewController(), animated: true, completion: nil)
+    }
+*/
+    
+    func saveHighScore() {
+        
+        let highScore = NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        if swiftris.score > NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore") {
+            NSUserDefaults.standardUserDefaults().setInteger(swiftris.score, forKey: "swiftris.highScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        NSUserDefaults.standardUserDefaults().integerForKey("swiftris.highScore")
+        println(highScore)
+    }
+
     
     func reset() {
         scene.removeAllChildren()
@@ -251,6 +283,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         let removedLines = swiftris.removeCompletedLines()
         if removedLines.linesRemoved.count > 0 {
             self.scoreLabel.text = "\(swiftris.score)"
+            self.highScoreLabel.text = "\(swiftris.highScore)"
             scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
 // recursive call to invoke itself
                 self.gameShapeDidLand(swiftris)

@@ -37,7 +37,14 @@
 		0A3A69421B0E86B80080CB51 /* levelup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693E1B0E86B80080CB51 /* levelup.mp3 */; };
 		0A3A69431B0E86B80080CB51 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A3A693F1B0E86B80080CB51 /* theme.mp3 */; };
 		0A3A69461B0E86E90080CB51 /* SwiftrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */; };
-		0A3A69481B0E87660080CB51 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3A69471B0E87660080CB51 /* GameKit.framework */; };
+		0A50FC771B104121008F1573 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A50FC761B104121008F1573 /* GameKit.framework */; };
+		0A7999291B0FDEBA00BBBE25 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7999281B0FDEBA00BBBE25 /* EpilogueViewController.swift */; };
+		0AC912D81B0FCE5400CEF289 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D21B0FCE5400CEF289 /* background.png */; };
+		0AC912D91B0FCE5400CEF289 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D31B0FCE5400CEF289 /* background@2x.png */; };
+		0AC912DA1B0FCE5400CEF289 /* gameboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D41B0FCE5400CEF289 /* gameboard.png */; };
+		0AC912DB1B0FCE5400CEF289 /* gameboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D51B0FCE5400CEF289 /* gameboard@2x.png */; };
+		0AC912DC1B0FCE5400CEF289 /* whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D61B0FCE5400CEF289 /* whitebg.png */; };
+		0AC912DD1B0FCE5400CEF289 /* whitebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC912D71B0FCE5400CEF289 /* whitebg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +94,14 @@
 		0A3A693F1B0E86B80080CB51 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		0A3A69441B0E86E80080CB51 /* SwiftrisTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftrisTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A3A69451B0E86E90080CB51 /* SwiftrisTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftrisTests.swift; sourceTree = "<group>"; };
-		0A3A69471B0E87660080CB51 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameKit.framework; sourceTree = "<group>"; };
+		0A50FC761B104121008F1573 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		0A7999281B0FDEBA00BBBE25 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
+		0AC912D21B0FCE5400CEF289 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		0AC912D31B0FCE5400CEF289 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		0AC912D41B0FCE5400CEF289 /* gameboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameboard.png; sourceTree = "<group>"; };
+		0AC912D51B0FCE5400CEF289 /* gameboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameboard@2x.png"; sourceTree = "<group>"; };
+		0AC912D61B0FCE5400CEF289 /* whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitebg.png; sourceTree = "<group>"; };
+		0AC912D71B0FCE5400CEF289 /* whitebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whitebg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A50FC771B104121008F1573 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3A69481B0E87660080CB51 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +126,7 @@
 		0A3A68D61B0E84580080CB51 = {
 			isa = PBXGroup;
 			children = (
-				0A3A69471B0E87660080CB51 /* GameKit.framework */,
+				0A50FC761B104121008F1573 /* GameKit.framework */,
 				0A3A68E11B0E84580080CB51 /* Swiftris */,
 				0A3A68FB1B0E84580080CB51 /* SwiftrisTests */,
 				0A3A68E01B0E84580080CB51 /* Products */,
@@ -133,9 +147,10 @@
 			children = (
 				0A3A69081B0E85150080CB51 /* Main.storyboard */,
 				0A3A690D1B0E85A90080CB51 /* StartViewController.swift */,
+				0A3A69101B0E85A90080CB51 /* HomeViewController.swift */,
 				0A3A690E1B0E85A90080CB51 /* GameViewController.swift */,
 				0A3A690F1B0E85A90080CB51 /* ClassicGameViewController.swift */,
-				0A3A69101B0E85A90080CB51 /* HomeViewController.swift */,
+				0A7999281B0FDEBA00BBBE25 /* EpilogueViewController.swift */,
 				0A3A69111B0E85A90080CB51 /* GameScene.swift */,
 				0A3A69121B0E85A90080CB51 /* Array2D.swift */,
 				0A3A69131B0E85A90080CB51 /* block.swift */,
@@ -165,6 +180,12 @@
 		0A3A68E21B0E84580080CB51 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AC912D21B0FCE5400CEF289 /* background.png */,
+				0AC912D31B0FCE5400CEF289 /* background@2x.png */,
+				0AC912D41B0FCE5400CEF289 /* gameboard.png */,
+				0AC912D51B0FCE5400CEF289 /* gameboard@2x.png */,
+				0AC912D61B0FCE5400CEF289 /* whitebg.png */,
+				0AC912D71B0FCE5400CEF289 /* whitebg@2x.png */,
 				0A3A68E31B0E84580080CB51 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -249,6 +270,12 @@
 				TargetAttributes = {
 					0A3A68DE1B0E84580080CB51 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 9E27F94D9X;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					0A3A68F71B0E84580080CB51 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -281,10 +308,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3A69381B0E86060080CB51 /* Sprites.atlas in Resources */,
+				0AC912DD1B0FCE5400CEF289 /* whitebg@2x.png in Resources */,
+				0AC912D81B0FCE5400CEF289 /* background.png in Resources */,
 				0A3A69361B0E85EA0080CB51 /* LaunchScreen.xib in Resources */,
+				0AC912DB1B0FCE5400CEF289 /* gameboard@2x.png in Resources */,
 				0A3A69421B0E86B80080CB51 /* levelup.mp3 in Resources */,
+				0AC912DA1B0FCE5400CEF289 /* gameboard.png in Resources */,
 				0A3A69431B0E86B80080CB51 /* theme.mp3 in Resources */,
 				0A3A69091B0E85150080CB51 /* Main.storyboard in Resources */,
+				0AC912DC1B0FCE5400CEF289 /* whitebg.png in Resources */,
+				0AC912D91B0FCE5400CEF289 /* background@2x.png in Resources */,
 				0A3A69401B0E86B80080CB51 /* drop.mp3 in Resources */,
 				0A3A693B1B0E86AF0080CB51 /* bomb.mp3 in Resources */,
 				0A3A69341B0E85C30080CB51 /* play.png in Resources */,
@@ -322,6 +355,7 @@
 				0A3A692B1B0E85A90080CB51 /* TShape.swift in Sources */,
 				0A3A690C1B0E85860080CB51 /* AppDelegate.swift in Sources */,
 				0A3A69201B0E85A90080CB51 /* ClassicGameViewController.swift in Sources */,
+				0A7999291B0FDEBA00BBBE25 /* EpilogueViewController.swift in Sources */,
 				0A3A691F1B0E85A90080CB51 /* GameViewController.swift in Sources */,
 				0A3A691E1B0E85A90080CB51 /* StartViewController.swift in Sources */,
 				0A3A692C1B0E85A90080CB51 /* SquareShape.swift in Sources */,
@@ -436,11 +470,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swiftris/Swiftris-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,10 +488,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Swiftris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swiftris/Swiftris-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -516,6 +560,7 @@
 				0A3A69041B0E84580080CB51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A3A69051B0E84580080CB51 /* Build configuration list for PBXNativeTarget "SwiftrisTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +569,7 @@
 				0A3A69071B0E84580080CB51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

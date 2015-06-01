@@ -26,8 +26,18 @@
                                     <segue destination="bZd-Io-1Nd" kind="push" id="A2h-TA-Eyr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzb-3T-cbF">
+                                <rect key="frame" x="91" y="435" width="138" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Leaderboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaderboardShow:" destination="okI-bL-WC8" eventType="touchUpInside" id="wnR-ZY-efU"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-1B-UyA">
-                                <rect key="frame" x="71" y="321" width="179" height="33"/>
+                                <rect key="frame" x="71" y="276" width="179" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Classic Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,6 +239,32 @@
                                     </label>
                                 </subviews>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nni-2d-vtd">
+                                <rect key="frame" x="16" y="425" width="84" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="u8H-6x-X1K">
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="100"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIGH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2Y-QU-Opr">
+                                        <rect key="frame" x="7" y="10" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-D9-x7L">
+                                        <rect key="frame" x="7" y="24" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b79-90-98w">
+                                        <rect key="frame" x="0.0" y="44" width="84" height="48"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="35"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -244,6 +280,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="countdownLabel" destination="6ch-Du-1ow" id="U8t-U5-pnb"/>
+                        <outlet property="highScoreLabel" destination="b79-90-98w" id="7eS-w0-QMQ"/>
                         <outlet property="levelLabel" destination="ogW-5e-VJV" id="2mV-BC-qm2"/>
                         <outlet property="playPauseButton" destination="THP-A3-xYv" id="iUW-ud-mJQ"/>
                         <outlet property="scoreLabel" destination="RJa-V4-UNM" id="Nog-aa-DaC"/>
@@ -271,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="702" y="-170"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationController-->
         <scene sceneID="sfi-lT-DaO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QEQ-vL-KRe" sceneMemberID="viewController">
+                <navigationController title="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="QEQ-vL-KRe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdN-Ay-HfA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -289,10 +326,10 @@
             </objects>
             <point key="canvasLocation" x="-662" y="158"/>
         </scene>
-        <!--GameViewController-->
+        <!--ClassicGameViewController-->
         <scene sceneID="4yR-Gc-g3P">
             <objects>
-                <viewController title="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7W-9w-Jt1" customClass="ClassicGameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ClassicGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7W-9w-Jt1" customClass="ClassicGameViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OZo-Nm-2EU"/>
                         <viewControllerLayoutGuide type="bottom" id="j5V-l7-7u5"/>
@@ -358,6 +395,32 @@
                                     </button>
                                 </subviews>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7a3-j6-aVc">
+                                <rect key="frame" x="16" y="433" width="84" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whitebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="fbS-hh-j40">
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="100"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HIGH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVm-Qi-pB9">
+                                        <rect key="frame" x="7" y="10" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHx-cN-duP">
+                                        <rect key="frame" x="7" y="24" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMw-6A-BL5">
+                                        <rect key="frame" x="0.0" y="45" width="84" height="48"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="35"/>
+                                        <color key="textColor" red="1" green="0.519360775" blue="0.060613250120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -372,6 +435,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="highScoreLabel" destination="LMw-6A-BL5" id="ImX-Q4-azd"/>
                         <outlet property="levelLabel" destination="9BQ-Tc-c9F" id="o09-1F-7d7"/>
                         <outlet property="playPauseButton" destination="Yom-wl-pEJ" id="RCn-eg-RAj"/>
                         <outlet property="scoreLabel" destination="8Db-dj-Ta2" id="6mQ-0w-Xy2"/>
@@ -398,6 +462,43 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="702" y="487"/>
+        </scene>
+        <!--EpilogueViewController-->
+        <scene sceneID="JuD-lW-gvq">
+            <objects>
+                <viewController title="EpilogueViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ph-eV-KDG" customClass="EpilogueViewController" customModule="Swiftris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nk0-j7-epB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FXn-wE-yD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ilR-jf-Lj6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-vb-0v5">
+                                <rect key="frame" x="118" y="246" width="112" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMN-ap-xjl">
+                                <rect key="frame" x="118" y="134" width="112" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" id="YVT-hL-uLv"/>
+                    <connections>
+                        <outlet property="button" destination="RMN-ap-xjl" id="GTN-4q-rMl"/>
+                        <outlet property="label" destination="1Vh-vb-0v5" id="Ezr-ik-9lA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYJ-Xr-OBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1191" y="201"/>
         </scene>
     </scenes>
     <resources>
