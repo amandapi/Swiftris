@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  TimedViewController.swift
 //  Swiftris
 //
 //  Created by Amanda Pi on 2015-03-17.
@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
-class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
+class TimedViewController: ShareViewController, SwiftrisDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var swiftris:Swiftris!
@@ -29,7 +29,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    // Register for notification with NSNotificationCenter so that GameViewController will receive applicationWillResignActive notifications
+    // Register for notification with NSNotificationCenter so that TimedViewController will receive applicationWillResignActive notifications
         
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "swiftrisDidEnterBackground", name: UIApplicationWillResignActiveNotification, object: nil)
         
@@ -98,7 +98,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
             swiftris.rotateShape()
     }
-    
+
+
     @IBAction func didPan(sender: UIPanGestureRecognizer) {
         if (isPause){
             return
@@ -131,7 +132,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func swiftrisDidEnterBackground() {  // read with NSNotification
         setPaused(true)
         
-        NSLog("From GameViewController: swiftrisDidEnterBackground")
+        NSLog("From TimedViewController: swiftrisDidEnterBackground")
     }
    
     // let all gesture recognizer work together but sometimes they might collide
@@ -193,6 +194,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         } else if timerCount == 0 {
             timer.invalidate()
             self.GameOverAlert()
+            NSNotificationCenter.defaultCenter().postNotificationName("HandleScore", object: nil)
             scene.stopTicking()
             player.stop()
             view.userInteractionEnabled = false

@@ -57,7 +57,7 @@ class GameScene: SKScene {
 //runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("theme.mp3", waitForCompletion: true))) // set up looping sound playback action for Russian theme song -- better use AVFoundation instead of SKAction
     }
     
-    func playSound(sound:String) { // method for GameViewController to play any sound file on demand
+    func playSound(sound:String) { // method for TimedViewController to play any sound file on demand
         runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
     }
     

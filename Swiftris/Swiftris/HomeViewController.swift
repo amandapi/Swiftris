@@ -2,62 +2,87 @@
 //  HomeViewController.swift
 //  Swiftris
 //
-//  Created by Amanda Pi on 2015-04-08.
+//  Created by Amanda Pi on 2015-05-08.
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
-
-import Foundation
 import UIKit
+import GameKit
 
-class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class HomeViewController: UIViewController, GKGameCenterControllerDelegate  {
     
-    let pickerData = ["0", "30", "60", "90", "120", "180", "240"]
-
-    @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var myPicker: UIPickerView!
+    var highScore : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myPicker.delegate = self
-        myPicker.dataSource = self
+        
+        authenticateLocalPlayer()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleScore:", name: "HandleScore", object: nil)
     }
     
-// Data sources and Delegates
+    func authenticateLocalPlayer() {
+        
+        var localPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler? = {(viewController, error) -> Void in
+            
+            if (viewController != nil) {
+                self.presentViewController(viewController, animated: true, completion: nil)
+            } else {
+                println("(GameCenter) Player authenticated: \(GKLocalPlayer.localPlayer().authenticated)")
+            }
+        }
+    }
     
-    // Data sources
+    func handleScore(notification: NSNotification) () {
+        
+    }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
-        return 1
+    @IBAction func TimedLeaderboard(sender: UIButton) {
+        showHighScore()
+        showTimedLeaderboard()
     }
 
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return pickerData.count
+    func showHighScore() {
+        if GKLocalPlayer.localPlayer().authenticated {
+            let gkScore = GKScore(leaderboardIdentifier: "Swiftris.Amanda.Leaderboard.01")
+            //gkScore.value = Swiftris.score
+            GKScore.reportScores([gkScore], withCompletionHandler: ({(error: NSError!) -> Void in
+                if (error != nil) {
+                // handle error
+                println("Error: " + error.localizedDescription);
+                } else {
+                println("Score reported: \(gkScore.value)")
+                }
+            }))
+        }
     }
     
-    // Delegates
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return pickerData[row]
+    func showTimedLeaderboard() {
+        var vc = self.view?.window?.rootViewController
+        var gc = GKGameCenterViewController()
+        gc.gameCenterDelegate = self
+        vc?.presentViewController(gc, animated: true, completion: nil)
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        myLabel.text = pickerData[row]
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = pickerData[row]
-        var myTitle = NSAttributedString(string: titleData, attributes:[NSFontAttributeName:UIFont(name:"Avenir light", size: 15.0)!, NSForegroundColorAttributeName: UIColor.blueColor()])
-        return myTitle
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    // to pass pickerView value to timerCount in GameViewController
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var DestViewController: GameViewController = segue.destinationViewController as! GameViewController
-        DestViewController.timerCount = myLabel.text!.toInt()!
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-
-
+    */
 
 }
